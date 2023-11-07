@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 30px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, input, button {
+    font-size: 1.2em;
+}
+
+input, button {
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.symptom-field {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.symptom-field + .symptom-field {
+  margin-top: 10px;
+}
+
+.symptom-field input[type="text"] {
+  margin-right: 10px;
+}
+
+.symptom-button {
+  font-size: 1.2em;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button {
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #2196F3;
+}
+
+.symptom-field {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.symptom-field + .symptom-field {
+  margin-top: 10px;
+}
+
+.symptom-field input[type="text"] {
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.symptom-button {
+  font-size: 1.2em;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.4s;
+}
+
+.symptom-button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.add-icon {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-top: 20px;
+
+}
+
+@keyframes spin {
+ 0% {
+    transform: rotate(0deg);
+    border-top-color: #3498db;
+  }
+  25% {
+    transform: rotate(90deg);
+    border-top-color: #9b59b6;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-top-color: #2ecc71;
+  }
+  75% {
+    transform: rotate(270deg);
+    border-top-color: #e74c3c;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-top-color: #3498db;
+  }
+}
+

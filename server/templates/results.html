@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+    <title>Symptom Search Results</title>
+  </head>
+  <body>
+    <h1>Symptom Search Results</h1>
+    <div class="results-container">
+      <div class="columns">
+        <div class="column left">
+            <p>Diseases that may cause these symptoms ({{ diseases|length }} found):</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Disease</th>
+                <th>Source</th>
+                <th>Cure with</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for disease, source, medic in diseases %}
+                <tr>
+                  <td>{{ disease }}</td>
+                  <td>{{ source }}</td>
+                  <td>{{ medic }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="column right">
+          <p>These symptoms can also be caused by side effects of these drugs:  ({{ drugs|length }} found)</p>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Drug</th>
+                      <th>Source</th>
+                      <th>Cure with </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for drug, source, medic in drugs %}
+                  <tr>
+                      <td>{{ drug }}</td>
+                      <td>{{ source }}</td>
+                      <td>{{ medic }}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <a href="/">Back to search</a>
+    </div>
+  </body>
+</html>

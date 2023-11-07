@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1z7XCp+HHAAK5GSLf2xlYtvJ8U2Q4U+9cuEnJoa3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Symptom Search</title>
+  </head>
+  <body>
+    <h1>Symptom Search</h1>
+    <p class="instructions">Enter one or more symptoms and click the search button to find possible diseases and drugs that can cause all these symptoms simultaneously.</p>
+    <form method="POST" action="/">
+      <div id="symptoms-container">
+        <div class="symptom-field">
+          <label for="symptom-0">Enter symptom:</label>
+          <input type="text" id="symptom-0" name="symptoms[]" required>
+          <button type="button" id="add-symptom" class="symptom-button">
+  <span class="add-icon">+</span>
+</button>
+        </div>
+      </div>
+      <button type="submit" class="search-button">Search</button>
+        <div class="loader" id="loader" style="display: none;"></div>
+    </form>
+    <script>
+      let symptomCount = 1;
+
+      document.getElementById('add-symptom').addEventListener('click', () => {
+        const container = document.getElementById('symptoms-container');
+        const addButton = document.getElementById('add-symptom');
+
+        const lastInput = document.getElementById(`symptom-${symptomCount - 1}`);
+
+        // Vérifie si le dernier champ de saisie contient du texte
+        if (lastInput.value.trim() === '') {
+          return;
+        }
+
+        const newDiv = document.createElement('div');
+        newDiv.className = 'symptom-field';
+
+        const newLabel = document.createElement('label');
+        newLabel.setAttribute('for', `symptom-${symptomCount}`);
+        newLabel.textContent = 'Enter symptom:';
+
+        const newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.id = `symptom-${symptomCount}`;
+        newInput.name = 'symptoms[]';
+        newInput.required = true;
+
+        newDiv.appendChild(newLabel);
+        newDiv.appendChild(newInput);
+        container.appendChild(newDiv);
+
+        // Move the add button to the new symptom field
+        addButton.remove();
+        newDiv.appendChild(addButton);
+
+        symptomCount++;
+      });
+
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', (event) => {
+          const loader = document.getElementById('loader');
+          loader.style.display = 'block';
+        });
+    </script>
+
+  </body>
+</html>
